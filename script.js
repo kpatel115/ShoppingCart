@@ -72,4 +72,12 @@ var Item = function(name, price, count) {
 
 // sample item - var brush = new Item("Brush", 1.99, 3); 
 
-// addItemToCart()
+// addItemToCart(name, price, count) - adds one item
+
+// removeItemFromCart(name) - removes one item
+
+// removeItemFromCartAll(name) - removes all item (name)
+
+// clearCart() - clears whole cart 
+
+// countCart() - look all counts of each item in array
