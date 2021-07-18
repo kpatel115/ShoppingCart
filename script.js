@@ -29,7 +29,7 @@ for (var key in array1) {
 
 }
 **/
-
+/**
 var cart = []
 
 var item = {name: "Apple", cost: 1.49, count: 3};
@@ -43,6 +43,7 @@ console.log(cart[0].cost);
 console.log(cart[0].count);
 
 console.log(cart[0].price);
+*/
 
 
 //Functions
@@ -62,7 +63,8 @@ function functionScope() {
 
 };
 */
-// Shopping Cart
+
+// Shopping Cart project
 var cart = [];
 var Item = function(name, price, count) {
     this.name = name
@@ -73,8 +75,36 @@ var Item = function(name, price, count) {
 // sample item - var brush = new Item("Brush", 1.99, 3); 
 
 // addItemToCart(name, price, count) - adds one item
+function addItemToCart(name, price, count) {
+
+    for (var i in cart) {
+
+        if (cart[i].name === name) {
+            cart[i].count += count;
+            return;
+        }
+
+    }   
+
+    var item = new Item(name, price, count);
+    cart.push(item);
+
+}
+
+addItemToCart("Apple", 1.22, 1);
+addItemToCart("Pear", 1.49, 3);
+addItemToCart("Apple", 1.22, 1);
+addItemToCart("Apple", 1.22, 5);
+
 
 // removeItemFromCart(name) - removes one item
+
+function removeItemFromCart(name) {
+    for () {
+        
+    }
+}
+
 
 // removeItemFromCartAll(name) - removes all item (name)
 

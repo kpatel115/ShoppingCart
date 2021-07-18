@@ -7,6 +7,7 @@
     margin: 0;
     padding: 0;
 }
+/** -----------------------------**/
 /** Navigation Style **/
 header {
     display: flex;
@@ -17,6 +18,7 @@ header {
 #header{
     background-color: mistyrose;
 }
+/** Body - Header**/
 .title{
     color: rgb(3, 3, 63);
 
@@ -41,32 +43,21 @@ li,a {
 .links li a:hover{
     color: rgb(104, 185, 255);
 }
-/****/
+/** -------------------------------------------------- **/
+/** Body - Main**/
 #main{
     background-position: center;
     background-size: cover;
     height: 100vh;
+    background-color: maroon;
 }
+
 h2, h3, h4 {
     
     color: snow;
 }
+
 p {
     color: azure;
 }
-/**
-#main{
-    border-style: solid;
-    border-color: cadetblue;
-    border-width: 50px;
-    text-align: center;
-}
-#sub{
-    border-style: dashed;
-    border-color: chartreuse;
-    border-top: chocolate;
-    border-bottom: cornflowerblue;
-    border-width: 25px;
-    border-left: mediumvioletred;
-}
-**/
+/** Body - Footer**/
