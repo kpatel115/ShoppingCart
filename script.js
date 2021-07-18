@@ -29,7 +29,7 @@ for (var key in array1) {
 
 }
 **/
-/** 
+
 var cart = []
 
 var item = {name: "Apple", cost: 1.49, count: 3};
@@ -43,7 +43,7 @@ console.log(cart[0].cost);
 console.log(cart[0].count);
 
 console.log(cart[0].price);
-*/
+
 
 //Functions
 /** 
@@ -80,4 +80,12 @@ var Item = function(name, price, count) {
 
 // clearCart() - clears whole cart 
 
-// countCart() - look all counts of each item in array
+// countCart() - return total count
+
+// totalCart() - return total cost
+
+// listCart() - array of Item
+
+// saveCart() - local storage or DATABASE - mongoDB or SQL
+
+// loadCart()
