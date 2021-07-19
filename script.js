@@ -64,6 +64,7 @@ function functionScope() {
 };
 */
 
+// ===================================== Shopping Cart=======
 // Shopping Cart project
 var cart = [];
 var Item = function(name, price, count) {
@@ -76,23 +77,18 @@ var Item = function(name, price, count) {
 
 // addItemToCart(name, price, count) - adds one item
 function addItemToCart(name, price, count) {
-
     for (var i in cart) {
-
         if (cart[i].name === name) {
             cart[i].count += count;
             return;
         }
-
     }   
-
     var item = new Item(name, price, count);
     cart.push(item);
-
+    saveCart();
 }
 
 // removeItemFromCart(name) - removes one item
-
 function removeItemFromCart(name) {
     for (var i in cart) {
         if (cart[i].name === name ) {
@@ -103,10 +99,10 @@ function removeItemFromCart(name) {
             break;
         }
     }
+    saveCart();
 }
 
 // removeItemFromCartAll(name) - removes all item (name)
-
 function removeItemFromCartAll(name) {
     for (var i in cart) {
         if (cart[i].name === name) {
@@ -114,37 +110,60 @@ function removeItemFromCartAll(name) {
             break;
         }
     }
+    saveCart();
 }
-
-addItemToCart("Apple", 1.22, 1);
-addItemToCart("Pear", 1.49, 3);
-addItemToCart("Apple", 1.22, 1);
-addItemToCart("Apple", 1.22, 3);
-addItemToCart("Car", 50.44, 1);
-addItemToCart("Car", 50.44, 1);
-addItemToCart("Sticky Notes", 5.90, 4);
-
-console.log(cart[2].name);
-console.log(cart.length);
-console.log(cart);
-
-removeItemFromCartAll("Car");
-
-console.log(cart.length);
-console.log(cart);
 
 // clearCart() - clears whole cart 
 function clearCart() {
     cart = [];
+    saveCart();
+};
+
+// countCart() - return total counts of items
+function countCart() {
+    var totalCount = 0;
+    for (var i in cart) {
+        totalCount += cart[i].count;
+    }
+    return totalCount;
 }
-clearCart();
-console.log(cart);
-// countCart() - return total count
+console.log( countCart() ); // testing total counts of added and removed items
 
 // totalCart() - return total cost
+function totalCart() {
+    var totalCost = 0;
+    for (var i in cart) {
+        totalCost += cart[i].price;
+    }
+    return totalCost;
+}
+console.log( totalCart() );
 
 // listCart() - array of Item
+function listCart() {
+    var cartCopy = [];
+    for (var i in cart) {
+        var item = cart[i];
+        var itemCopy = {};
+        for (var p in item) {
+            itemCopy[p] = item[p];
+        }
+        cartCopy.push(itemCopy);
+    }
+    return cartCopy;
+}
 
-// saveCart() - local storage or DATABASE - mongoDB or SQL
+// saveCart() - local storage 
+function saveCart() {
+    localStorage.setItem("shoppingCart", JSON.stringify(cart));
+}
 
 // loadCart()
+function loadCart() {
+    cart = JSON.parse(localStorage.getItem("shoppingCart"));
+}
+
+loadCart();
+
+var array = listCart();
+console.log(array);
