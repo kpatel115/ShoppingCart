@@ -91,25 +91,54 @@ function addItemToCart(name, price, count) {
 
 }
 
-addItemToCart("Apple", 1.22, 1);
-addItemToCart("Pear", 1.49, 3);
-addItemToCart("Apple", 1.22, 1);
-addItemToCart("Apple", 1.22, 5);
-
-
 // removeItemFromCart(name) - removes one item
 
 function removeItemFromCart(name) {
-    for () {
-        
+    for (var i in cart) {
+        if (cart[i].name === name ) {
+            cart[i].count --;
+            if (cart[i].count === 0 ) {
+                cart.splice( i, 1 );
+            }
+            break;
+        }
     }
 }
 
-
 // removeItemFromCartAll(name) - removes all item (name)
 
-// clearCart() - clears whole cart 
+function removeItemFromCartAll(name) {
+    for (var i in cart) {
+        if (cart[i].name === name) {
+            cart.splice(i,1);
+            break;
+        }
+    }
+}
 
+addItemToCart("Apple", 1.22, 1);
+addItemToCart("Pear", 1.49, 3);
+addItemToCart("Apple", 1.22, 1);
+addItemToCart("Apple", 1.22, 3);
+addItemToCart("Car", 50.44, 1);
+addItemToCart("Car", 50.44, 1);
+addItemToCart("Sticky Notes", 5.90, 4);
+
+console.log(cart[2].name);
+console.log(cart.length);
+console.log(cart);
+
+removeItemFromCartAll("Car");
+
+console.log(cart.length);
+console.log(cart);
+
+// clearCart() - clears whole cart 
+function clearCart() {
+    cart = [];
+}
+clearCart();
+console.log(cart);
 // countCart() - return total count
 
 // totalCart() - return total cost
